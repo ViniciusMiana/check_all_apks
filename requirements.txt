@@ -1,0 +1,3 @@
+termcolor~=1.1.0
+requests~=2.27.1
+drozer==2.4.3

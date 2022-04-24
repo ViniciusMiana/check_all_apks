@@ -19,7 +19,6 @@ from collections import                 namedtuple
 import                                  os
 import                                  os.path
 from pprint import                      pprint
-from                                    pwn import *
 from time import                        sleep
 import                                  sys
 
@@ -52,6 +51,7 @@ def hash_file(apk_file):
 def get_session():
     cur_console = Console()
     arguments   = cur_console._parser.parse_args(["console", "connect"])
+    arguments.server = "192.168.86.232"
     device      = cur_console._Console__get_device(arguments)
     server      = cur_console._Console__getServerConnector(arguments)
     response    = server.startSession(device, None)
@@ -70,7 +70,9 @@ def get_pkg_info(session):
     packages = []
     if session is not None:
         list_module = session._Session__module("app.package.list")
+        print("Getting packages") 
         for pkg in list_module.packageManager().getPackages():
+            print(pkg) 
             app = pkg.applicationInfo
             cur_package = {"package":   app.packageName,
                            "apk_path":  app.publicSourceDir}
