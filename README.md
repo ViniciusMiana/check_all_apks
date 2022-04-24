@@ -16,9 +16,10 @@ Check All APK's scripts are coded in Python 2.7. It uses two packages:
 
 * Drozer, which can be downloaded as a Debian DEB package on MWR InfoSecurity's website 
 [(see above)](https://labs.mwrinfosecurity.com/tools/drozer/)
-* pwntools, a CTF framework and exploit development library 
-  [https://github.com/Gallopsled/pwntools](https://github.com/Gallopsled/pwntools)
-  and can be installed either from source or via pip.
+* Actually, you can run drozer using -> `docker run -it fsecurelabs/drozer`
+* Clone this repo inside the docker, install the missing requirements and run the scripts from there.
+* You will need to install the drozer agent on the phone and fix the IP that is hardcoded in the script.
+* 
 
 In addition to the python packages, the check_all_apks.py script makes calls to the Android Debug
 Bridge, which can be installed as part of Android Studio or via the APT repository.
